@@ -1,0 +1,18 @@
+{
+  "name": "github-action-poc",
+  "version": "1.0.0",
+  "description": "A simple GitHub Action proof of concept",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Building project...'",  // Replace with actual build command if needed
+    "test": "echo 'Running tests...'"      // Optional, if you want a test script
+  },
+  "dependencies": {
+    "axios": "^0.21.1"                     // Replace with actual dependencies
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"                    // Replace with actual dev dependencies
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
