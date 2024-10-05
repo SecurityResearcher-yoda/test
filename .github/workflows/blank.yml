@@ -1,0 +1,43 @@
+name: pr-check-poc
+
+# Trigger for pull requests and changes to the workflow file
+on:
+  pull_request_target:
+  pull_request:
+    paths:
+      - '.github/workflows/pr-check-poc.yml'
+
+permissions:
+  id-token: write # Needed for Azure login with OIDC
+
+jobs:
+  deploy:
+    environment: Automation test # Requires approval before running
+    runs-on: ubuntu-latest # Simplified to just run on a single OS
+    permissions:
+      checks: write
+      id-token: write
+    continue-on-error: false
+
+    env:
+      TEST_DB: 'SqlActionTest-ubuntu'
+
+    steps:
+    - name: Checkout PR branch
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        ref: ${{ github.event.pull_request.head.ref }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build GitHub Action
+      run: npm run build
+
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
