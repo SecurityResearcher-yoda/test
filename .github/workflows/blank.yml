@@ -13,7 +13,7 @@ permissions:
 jobs:
   deploy:
     environment: Automation test # Requires approval before running
-    runs-on: ubuntu-latest # Simplified to just run on a single OS
+    runs-on: self-hosted # Simplified to just run on a single OS
     permissions:
       checks: write
       id-token: write
